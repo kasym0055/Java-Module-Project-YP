@@ -15,7 +15,7 @@ public class Racing {
             }
 
         }
-        System.out.println(String.format("Самая быстрая машина: %s",leader));
+        System.out.printf("Самая быстрая машина: %s%n",leader);
 
     }
 
