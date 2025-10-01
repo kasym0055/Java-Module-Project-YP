@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        ArrayList<Cars> carList= new ArrayList<>();
         int countCars=1;
         String carName="";
         int carSpeed=0;
@@ -17,6 +19,8 @@ public class Main {
                 if (scanner.hasNextInt()){
                     carSpeed=scanner.nextInt();
                     if (carSpeed>0 && carSpeed<=250){
+                        Cars car = new Cars(carName,carSpeed);
+                        carList.add(car);
                         countCars++;
                         break;
                     }else {
@@ -30,13 +34,8 @@ public class Main {
             }
         }
 
-
-
-
-        Cars car = new Cars(carName,carSpeed);
         Racing race = new Racing();
-        race.updateLeader(car);
-        System.out.println(car.name);
+        race.calculateLeader(carList);
 
 
     }
